@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Descubra o quanto sua empresa pode lucrar a mais com nossa tecnologia</h1>
+    <h2><b>Calculadora</b></h2>
+    Insira a sua safra (KG) <input type="text" id="ipt_safra"><br>
+    <h2>Prejuizos</h2>
+    Insira o prejuizo de morangos estragados por má refrigeração:(R$) <input type="text" id="ipt_prejuizo"><br>
+    Insira seu gasto com irrigação por safra (R$): <input type="text" id="ipt_irrigacao"> <br>
+    Insira gastos com internet (R$): <input type="text" id="ipt_internet"> <br>
+    Insira gastos com energia (R$): (Ar condicionado incluso): <input type="text" id="ipt_energia"> <br>
+    Insira insumos (R$): <input type="text" id="ipt_insumos">
+ <div class="esquerda" ><img src="https://img.icons8.com/?size=160&id=69965&format=png" alt=""  ></div>
+    <h2>Cotação morango</h2>
+    Insira a cotação atual do morango: <input type="text" id="ipt_cotacao">
+
+
+    <button onclick="calcular()">Calcular</button>
+
+    <P>Quanto poderiamos reduzir o prejuizo </P>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+        var kg = Number(ipt_safra.value)
+        var prejuizo = Number(ipt_prejuizo.value)
+        var irrigacao = Number(ipt_irrigacao.value)
+        var energia = Number(ipt_energia.value)
+        var internet = Number(ipt_internet.value)
+        var insumos = Number(ipt_insumos.value)
+
+        var cotacao = ipt_cotacao.value;
+        var faturamento = kg * cotacao;
+        var gastototal = irrigacao + prejuizo + energia + internet + insumos;
+        var pctprejuizo = (gastototal / faturamento) * 100;
+        var reducaomin = gastototal * 0.20;
+        var reducaomax = gastototal * 0.48;
+        var pctmin = (reducaomin / faturamento) * 100;
+        var pctmax = (reducaomax / faturamento) * 100;  
+
+
+
+        div_mensagem.innerHTML = `Com base na calculadora e na cotação atual,seu faturamento bruto é de ${faturamento}<br>
+Seu prejuizo com morangos estragados é de ${prejuizo},cerca de ${pctprejuizo}% de seu faturamento.<br>
+Com o nosso software esse valor pode ser reduzido entre ${reducaomin} e ${reducaomax}, reduzindo para uma porcentagem entre ${pctmin}% até ${pctmax}% reespectivamente,de dimunuir a probalidade de pragas`
+
+    }
+
+</script>

@@ -1,0 +1,25 @@
+body {
+    background-color: #F62F63;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+  }
+
+h2 {
+    color: white;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-style: italic;
+    align-items: center;
+}
+
+.esquerda{
+    text-align: left;
+    height: 15px;
+    
+}
